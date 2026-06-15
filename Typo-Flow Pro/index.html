@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TypeFlow Pro | Typing Speed Tester</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-keyboard"></i>
+                </div>
+
+                <div>
+                    <h1>TypeFlow Pro</h1>
+                    <p>Professional Typing Performance Platform</p>
+                </div>
+
+            </div>
+
+            <button id="themeBtn" class="theme-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+        </header>
+
+        <!-- Controls -->
+
+        <section class="controls glass">
+
+            <div class="control">
+
+                <label>Difficulty</label>
+
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+
+            </div>
+
+            <div class="control">
+
+                <label>Timer</label>
+
+                <select id="timeSelect">
+                    <option value="30">30 Seconds</option>
+                    <option value="60" selected>60 Seconds</option>
+                    <option value="120">120 Seconds</option>
+                </select>
+
+            </div>
+
+        </section>
+
+        <!-- Main Area -->
+
+        <section class="main-grid">
+
+            <!-- Left Side -->
+
+            <div class="typing-section glass">
+
+                <div class="section-title">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Typing Challenge</span>
+                </div>
+
+                <div id="paragraphDisplay" class="paragraph-display">
+                    Loading paragraph...
+                </div>
+
+                <textarea
+                    id="inputField"
+                    placeholder="Start typing here..."
+                    spellcheck="false"
+                ></textarea>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="side-panel">
+
+                <!-- Circular Timer -->
+
+                <div class="glass timer-card">
+
+                    <h3>Time Left</h3>
+
+                    <div class="progress-ring">
+
+                        <svg width="180" height="180">
+
+                            <circle
+                                class="bg"
+                                cx="90"
+                                cy="90"
+                                r="75">
+                            </circle>
+
+                            <circle
+                                id="progressCircle"
+                                class="progress"
+                                cx="90"
+                                cy="90"
+                                r="75">
+                            </circle>
+
+                        </svg>
+
+                        <div class="timer-text">
+                            <span id="time">60</span>
+                            <small>sec</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Stats -->
+
+                <div class="stats">
+
+                    <div class="glass stat-card">
+
+                        <i class="fa-solid fa-gauge-high"></i>
+
+                        <h4>WPM</h4>
+
+                        <span id="wpm">0</span>
+
+                    </div>
+
+                    <div class="glass stat-card">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <h4>Accuracy</h4>
+
+                        <span id="accuracy">0%</span>
+
+                    </div>
+
+                    <div class="glass stat-card">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        <h4>Errors</h4>
+
+                        <span id="errors">0</span>
+
+                    </div>
+
+                    <div class="glass stat-card">
+
+                        <i class="fa-solid fa-keyboard"></i>
+
+                        <h4>Typed</h4>
+
+                        <span id="typedChars">0</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Buttons -->
+
+        <section class="buttons">
+
+            <button id="restartBtn">
+                <i class="fa-solid fa-rotate-right"></i>
+                Restart
+            </button>
+
+            <button id="newTextBtn">
+                <i class="fa-solid fa-shuffle"></i>
+                New Paragraph
+            </button>
+
+        </section>
+
+        <!-- Leaderboard -->
+
+        <section class="glass leaderboard">
+
+            <h2>
+                <i class="fa-solid fa-trophy"></i>
+                Leaderboard
+            </h2>
+
+            <ul id="historyList">
+
+                <li>No Records Yet</li>
+
+            </ul>
+
+        </section>
+
+    </div>
+
+    <!-- Result Modal -->
+
+    <div class="modal hidden" id="resultModal">
+
+        <div class="modal-content">
+
+            <div class="success-icon">
+                🏆
+            </div>
+
+            <h2>Test Completed</h2>
+
+            <div class="result-grid">
+
+                <div>
+                    <p>WPM</p>
+                    <h3 id="finalWpm">0</h3>
+                </div>
+
+                <div>
+                    <p>Accuracy</p>
+                    <h3 id="finalAccuracy">0%</h3>
+                </div>
+
+                <div>
+                    <p>Errors</p>
+                    <h3 id="finalErrors">0</h3>
+                </div>
+
+                <div>
+                    <p>Typed</p>
+                    <h3 id="finalTyped">0</h3>
+                </div>
+
+            </div>
+
+            <button id="closeModal">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="paragraphs.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
