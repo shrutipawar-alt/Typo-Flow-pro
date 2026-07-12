@@ -42,7 +42,7 @@ A modern and professional typing speed tester built using HTML, CSS, and JavaScr
 - Smooth animations
 
 ## Live Demo
-https://amazing-piroshki-33b706.netlify.app/
+https://typoflowpro.netlify.app/
 
 ---
 
